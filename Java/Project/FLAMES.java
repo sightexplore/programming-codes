@@ -1,15 +1,19 @@
 import java.util.Scanner;
 class Flames
 {
+    //instance variable
     String name1, name2;
     char letter[] = {'F', 'L', 'A', 'M', 'E', 'S'};
     String status[] = {"Friends", "Lover", "Affectionate", "Marriage", "Enemies", "Siblings"};
     
     void input()
     {
-        Scanner in = new Scanner(System.in);
-        name1 = in.next().toUpperCase();
-        name2 = in.next().toUpperCase();
+        Scanner in = new Scanner(System.in);  //Creating Scanner Object
+        System.out.print(" Enter first name : ");
+        name1 = in.nextLine().toUpperCase().replace(" ", "");   //input->Uppercase->Remove Space
+        System.out.print("Enter second name : ");
+        name2 = in.nextLine().toUpperCase().replace(" ", "");;
+        in.close();                         //Closing Scanner Object
     }
     
     int strikeCommon()
@@ -18,7 +22,7 @@ class Flames
         String copy2 = name2;
         int totalLength = name1.length()+name2.length();
         
-        System.out.print("COMMON LETTERS: ");
+        System.out.print("\nCOMMON LETTERS: ");
         for (int i=0; i < copy1.length() ; i++)
         {
             for (int j=0; j < copy2.length(); j++)
@@ -29,6 +33,8 @@ class Flames
                 {
                     System.out.print(chr1+" ");
                     totalLength -= 2; //both letter striked out
+                    copy1 = copy1.substring(0, i)+"*"+copy1.substring(i+1);
+                    copy2 = copy2.substring(0, j)+"*"+copy2.substring(j+1);
                     break;
                 }
             }
@@ -43,8 +49,7 @@ class Flames
         {
             for(int i=1; i<6; i++)
                 letter[i] = '*';
-        }
-        else
+        }else
         {
             int pos = -1;
             for (int i=0; i<5; i++)
