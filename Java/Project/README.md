@@ -2,3 +2,4 @@
 - Flames
 - Quiz App
 - Boxify
+- Pagination
